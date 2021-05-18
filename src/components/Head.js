@@ -1,4 +1,5 @@
 import React from 'react';
+import {useHistory} from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -6,6 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import {MenuItem,Menu} from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import { useAuth } from '../auth/useAuth';
+import {auth} from '../firebase/config';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,15 +28,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Head = () => {
+    const {loading,user}=useAuth()
+    console.log(Boolean(user))
+    
+    const history=useHistory()
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
-    const [auth, setAuth] = React.useState(true);
-
-  const open = Boolean(anchorEl);
-
-  const handleChange = (event) => {
-    setAuth(event.target.checked);
-  };
+  const open = Boolean(anchorEl)
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -42,13 +43,16 @@ const Head = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
+  const logout=()=>{
+    auth.signOut()
+    history.push('/login')
+}
     return (
         <div className={classes.root}>
             <AppBar position="static" className={classes.appBar}>
                 <Toolbar >
                 <Typography variant="h3" className={classes.title} align="center">
-                    ToStore.online
+                    ToStore.Online
                 </Typography>
                   
                     <div>
@@ -78,7 +82,7 @@ const Head = () => {
                     >
                         <MenuItem onClick={handleClose}>About</MenuItem>
                         <MenuItem onClick={handleClose}>Contact</MenuItem>
-                        <MenuItem onClick={handleClose}>Logout</MenuItem>
+                      {  user&&<MenuItem onClick={logout}>Logout</MenuItem>}
                     </Menu>
             </div>
                 </Toolbar>

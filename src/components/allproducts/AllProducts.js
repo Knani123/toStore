@@ -16,7 +16,7 @@ import AccessibilityIcon from '@material-ui/icons/Accessibility';
 const useStyle=makeStyles(theme=>({
     filter:{
         display:"flex",
-        margin:"5px auto",
+        margin:"10px auto",
         width: "99%",
         overflow: "auto",
         justifyContent: "space-between",
@@ -40,6 +40,7 @@ const AllProducts = () => {
         return "default"
         return "outlined"
     }
+
     return (
         <div className={classes.filter}>
             <Chip

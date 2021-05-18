@@ -5,6 +5,9 @@ import Head from './Head'
 import Footer from './Footer'
 import AllProducts from './allproducts/AllProducts'
 import CssBaseline from '@material-ui/core/CssBaseline';
+import ScrollToTop from './scroll/ScrollToTop';
+import AllCard from './card';
+import Pub from './pub/pub';
 
 const useStyle=makeStyles(
     theme=>(
@@ -14,19 +17,21 @@ const useStyle=makeStyles(
             }
         }
         ))
-const Home = ({user}) => {
+const Home = () => {
+
     const classes=useStyle()
-    const logout=()=>{
-        auth.signOut()
-    }
-    console.log("user",user.email)
+   
+    
     return (
         <div >
             <div container className={classes.root} direction="column">
-                <Head/>
-                <AllProducts/>
+                <Head />
+                <AllProducts />
+                <AllCard/>
             </div>
-            <Footer/>
+            <Footer /> 
+            <Pub/>
+            <ScrollToTop/>
             <CssBaseline/>
         </div>
     )

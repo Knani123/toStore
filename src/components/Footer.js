@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
 import {Paper,makeStyles,Button,IconButton,Typography,Divider} from '@material-ui/core';
 import {Grid} from '@material-ui/core';
 import FacebookIcon from '@material-ui/icons/Facebook';
@@ -12,10 +13,11 @@ const useStyle=makeStyles(theme=>({footer:{
     display:"flex",
     justifyContent:"space-around",
     alignItems:"center",
-    height:"150px",
+    height:"130px",
+    borderRadius:"12px",
     width:"100%",
     boxSizing:"border-box",
-    padding:5
+    padding:15
 },
 made:{
     display:"flex",
@@ -30,8 +32,10 @@ const Footer = () => {
     const classes=useStyle()
     return (
         <div contanier className={classes.footer} >
-            <Typography  >
+            <Typography  align="center">
                 Made with <span className={classes.heart} > ❤️ </span> by toStore's developers
+                <Divider/>
+                Copyright <Link to='/login' style={{textDecoration:"none",color:"black"}}>©</Link> {new Date().getFullYear()}. All rights reserved
             </Typography>
             <div >
             <Typography >
