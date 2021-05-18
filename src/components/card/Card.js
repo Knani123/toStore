@@ -82,10 +82,11 @@ export default function CardText() {
       </CardContent>
       <CardActions
       className={classes.cardaction}>
-      {/* <AvatarGroup max={4}> */}
           <Avatar title="banggood" className={classes.avatar} src="https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/d3/e1/cd/d3e1cd1a-6669-601f-3040-8dd79a58de69/AppIcon-1x_U007emarketing-0-7-0-0-85-220.png/1200x630wa.png"/>
-              <Avatar title="Amazone" className={classes.avatar} src="https://iconape.com/wp-content/files/mk/33892/svg/amazon-icon-1.svg"/>
-        {/* </AvatarGroup> */}
+          <Avatar title="Amazone" className={classes.avatar} src="https://iconape.com/wp-content/files/mk/33892/svg/amazon-icon-1.svg"/>
+          <Avatar title="banggood" className={classes.avatar} src="https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/d3/e1/cd/d3e1cd1a-6669-601f-3040-8dd79a58de69/AppIcon-1x_U007emarketing-0-7-0-0-85-220.png/1200x630wa.png"/>
+          <Avatar title="Amazone" className={classes.avatar} src="https://iconape.com/wp-content/files/mk/33892/svg/amazon-icon-1.svg"/>
+          <Avatar title="Amazone" className={classes.avatar} src="https://iconape.com/wp-content/files/mk/33892/svg/amazon-icon-1.svg"/>
       </CardActions>
     </Card>
   );

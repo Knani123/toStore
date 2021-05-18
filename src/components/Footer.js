@@ -7,6 +7,7 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import {useAuth} from '../auth/useAuth';
 const useStyle=makeStyles(theme=>({footer:{
     margin:0,
     backgroundColor:"#fa0",
@@ -29,13 +30,14 @@ heart:{
 }
 }))
 const Footer = () => {
+    const {user}=useAuth()
     const classes=useStyle()
     return (
         <div contanier className={classes.footer} >
             <Typography  align="center">
                 Made with <span className={classes.heart} > ❤️ </span> by toStore's developers
                 <Divider/>
-                Copyright <Link to='/login' style={{textDecoration:"none",color:"black"}}>©</Link> {new Date().getFullYear()}. All rights reserved
+                Copyright <Link to={!user&&'/login'} style={{textDecoration:"none",color:"black"}}>©</Link> {new Date().getFullYear()}. All rights reserved
             </Typography>
             <div >
             <Typography >

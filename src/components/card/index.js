@@ -38,7 +38,7 @@ const AllCard = () => {
     const {user}=useAuth()
     console.log("user",user)
     const classes=useStyle()
-    const [tab, setTab] = useState([1,2,3,4]);
+    const [tab, setTab] = useState([1]);
    
     return (
         <Grid container align="center" spacing={2}>
