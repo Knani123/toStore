@@ -17,14 +17,15 @@ const Pub = () => {
                 {
                     left:"50%",
                     transform:"translateX(-50%)",
-                    width:"60%",
-                    height:"200px",
+                    width:"80%",
+                    height:"50%",
                     border:"1px solid red",
                     position:"fixed",
-                    top:"40vh",
+                    top:"30vh",
                     backgroundColor:"red",
                     zIndex:"10",
                     display:!affich&&"none",
+                    borderRadius:"20px"
                     }
                     }
         >
@@ -34,6 +35,7 @@ const Pub = () => {
                 margin:"5px",
                 fontSize:"30px",
                 display:!del&&"none",
+                color:"#fff"
 
             }}
             onClick={()=>setAffich(false)}>

@@ -18,7 +18,7 @@ const useStyle=makeStyles(theme=>({
         display:"flex",
         margin:"10px auto",
         width: "99%",
-        overflow: "auto",
+        overflowX: "auto",
         justifyContent: "space-between",
         [theme.breakpoints.up('sm')]: {
             flexWrap:"wrap",

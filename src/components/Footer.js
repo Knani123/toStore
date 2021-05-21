@@ -9,7 +9,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import {useAuth} from '../auth/useAuth';
 const useStyle=makeStyles(theme=>({footer:{
-    margin:0,
+    margin:"10px 0 0 0",
     backgroundColor:"#fa0",
     display:"flex",
     justifyContent:"space-around",

@@ -13,6 +13,9 @@ import {auth} from '../firebase/config';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    margin:0,
+    overflow:"hidden"
+
   },
   menuButton: {
     // marginRight: the+me.spacing(2),
@@ -22,7 +25,9 @@ const useStyles = makeStyles((theme) => ({
     color:"#fa0"
   },
   appBar:{
-      padding:10,
+    overflow:"hidden"
+,
+      padding:5,
       backgroundColor:"#000"
   }
 }));
@@ -49,9 +54,10 @@ const Head = () => {
 }
     return (
         <div className={classes.root}>
+            
             <AppBar position="static" className={classes.appBar}>
                 <Toolbar >
-                <Typography variant="h3" className={classes.title} align="center">
+                <Typography variant="h4" className={classes.title} align="center">
                     ToStore.Online
                 </Typography>
                   

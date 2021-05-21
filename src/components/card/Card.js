@@ -1,13 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
-import Card from '@material-ui/core/Card';
+import {Card,Divider} from '@material-ui/core';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
 import {IconButton,Button} from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
@@ -15,18 +13,21 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-// import AvatarGroup from '@material-ui/lab/AvatarGroup';
-
+import cardAction from "../Amzone"
+// import InfoProduct from '../InfoProduct';
+import InfoProduct from '../InfoProduct';
 const useStyle=makeStyles(theme=>({
   card:{
+    border:"1px solid #009",
+    overflowX: "hidden",
     maxHeight:300,
     maxWidth:300,
-    margin:15,
+    margin:2,
     [theme.breakpoints.down('sm')]: {
       maxWidth:250,
     },
     [theme.breakpoints.down('xs')]: {
-      maxWidth:180,
+      maxWidth:220,
     }
   },
   cardaction:{
@@ -40,13 +41,17 @@ const useStyle=makeStyles(theme=>({
 const textHead=()=>{
 
   return(
+    <>
     <Typography variant="subtitle2" gutterBottom >
           Name of the product 
     </Typography>
+    </>
   )
 }
 
+
 export default function CardText() {
+  const [open, setOpen] = React.useState(false);
   const classes=useStyle()
   const [expanded, setExpanded] = React.useState(false);
 
@@ -55,38 +60,36 @@ export default function CardText() {
   };
 
   return (
-    <Card  className={classes.card} >
+    <Card  className={classes.card} elevation={5}>
       <CardHeader
-  
+      style={{margin:"0 5px",padding:0}}
         action={
-          <>
-          <IconButton aria-label="settings">
-            <FavoriteIcon />
+         <span style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+          <IconButton
+                style={{padding:0,color:"#e22"}}
+          >
+             <FavoriteIcon/>
           </IconButton>
-          <IconButton aria-label="settings">
-            <ShareIcon />
-          </IconButton>
-          </>
-        }
+          <InfoProduct open={open}setOpen={setOpen}/>
+         </span>
+          
+       }
         title={textHead()}
-        style={{height:"50px",width:"99%",padding:"0 2px",margin:"auto"}}
       />
        <CardMedia
+       
+       onClick={()=>setOpen(true)}
         image="https://www.mountaingoatsoftware.com/uploads/blog/2016-09-06-what-is-a-product.png"
-        style={{height:"150px",width:"99%",margin:"auto"}}
+        style={{height:"150px",width:"99%",margin:"auto",cursor:"pointer"}}
       />
-      <CardContent style={{height:"25px"}}>
-        <Typography variant="body2" color="textSecondary" component="p">
-          Best price & quality
+      <CardContent style={{height:"30px",padding:0,margin:0}}> 
+        <Typography variant="caption" color="textSecondary" component="p">
+          Get it! Best price & quality
         </Typography>
       </CardContent>
       <CardActions
       className={classes.cardaction}>
-          <Avatar title="banggood" className={classes.avatar} src="https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/d3/e1/cd/d3e1cd1a-6669-601f-3040-8dd79a58de69/AppIcon-1x_U007emarketing-0-7-0-0-85-220.png/1200x630wa.png"/>
-          <Avatar title="Amazone" className={classes.avatar} src="https://iconape.com/wp-content/files/mk/33892/svg/amazon-icon-1.svg"/>
-          <Avatar title="banggood" className={classes.avatar} src="https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/d3/e1/cd/d3e1cd1a-6669-601f-3040-8dd79a58de69/AppIcon-1x_U007emarketing-0-7-0-0-85-220.png/1200x630wa.png"/>
-          <Avatar title="Amazone" className={classes.avatar} src="https://iconape.com/wp-content/files/mk/33892/svg/amazon-icon-1.svg"/>
-          <Avatar title="Amazone" className={classes.avatar} src="https://iconape.com/wp-content/files/mk/33892/svg/amazon-icon-1.svg"/>
+         {cardAction()}
       </CardActions>
     </Card>
   );

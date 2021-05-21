@@ -14,6 +14,7 @@ const useStyle=makeStyles(
         {
             root:{
                 minHeight:"120vh",
+                overflow: "hiden"
             }
         }
         ))
@@ -27,7 +28,7 @@ const Home = () => {
             <div container className={classes.root} direction="column">
                 <Head />
                 <AllProducts />
-                <AllCard/>
+                 <AllCard/>
             </div>
             <Footer /> 
             <Pub/>
